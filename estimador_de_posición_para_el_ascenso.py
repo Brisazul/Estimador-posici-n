@@ -64,7 +64,7 @@ df_total["POSICION"] = df_total.index + 1
 st.header("¿Cuántos decimales tiene su ponderación?")
 decimales = st.number_input("Elija la cantidad de decimales (sin redondear)", min_value=0, max_value=10, step=1, value=3)
 
-def truncaar(valor, decimales):
+def truncar(valor, decimales):
     factor = 10**decimales
     return np.trunc(valor * factor) / factor
 
