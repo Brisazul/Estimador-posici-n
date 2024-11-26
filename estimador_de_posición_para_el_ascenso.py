@@ -61,6 +61,17 @@ df_total = df_total.sort_values(by="PUNTAJE FINAL", ascending=False).reset_index
 df_total["POSICION"] = df_total.index + 1
 
 # --- Entrada del usuario ---
+st.header("¿Cuántos decimales tiene su ponderación?")
+decimales = st.number_input("Elija la cantidad de decimales (sin redondear)", min_value=0, max_value=10, step=0.01, value=3)
+
+def truncaar(valor, decimales):
+    factor = 10**decimales
+    return np.trunc(valor * factor) / factor
+
+# Aplicar truncamiento al DataFrame
+df_total["PUNTAJE FINAL"] = df_total["PUNTAJE FINAL"].apply(lambda x: truncar(x, decimales))
+
+# --- Entrada del usuario ---
 st.header("Ingrese su puntaje ponderado:")
 puntaje_usuario = st.number_input("Puntaje final (ponderado):", min_value=56.0, max_value=100.0, step=0.01)
 
