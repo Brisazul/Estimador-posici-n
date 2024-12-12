@@ -15,8 +15,8 @@ df_ponderaciones = pd.read_csv("ponderaciones.csv")
 puntajes_reales = df_ponderaciones["PUNTAJE FINAL"].values
 
 # Datos del test
-no_presentados = 150
-no_aprobaron = 12
+no_presentados = 21
+no_aprobaron = 3
 puntajes_100 = 30
 sumarios = 67
 
